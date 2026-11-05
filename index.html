@@ -245,7 +245,8 @@
             </div>
             <div class="gallery-wrap" hidden="" id="paraisoGallery">
               <div class="gallery-heading">
-                <span>PORTFÓLIO FOTOGRÁFICO</span><span>53 fotografias</span>
+                <span>PORTFÓLIO FOTOGRÁFICO</span
+                ><span id="paraisoPhotoCount"></span>
               </div>
               <div class="gallery-grid" id="galleryGrid"></div>
             </div>
@@ -448,6 +449,7 @@
         document.getElementById("modalImage").style.background =
           id === "paraiso" ? "#d9e2e6" : "";
         document.getElementById("origemGallery").hidden = id !== "origem";
+        document.getElementById("paraisoGallery").hidden = id !== "paraiso";
         document.getElementById("modalSpecs").innerHTML = p.specs
           .map((x) => `<div>${x[0]}<b>${x[1]}</b></div>`)
           .join("");
@@ -493,13 +495,17 @@
         );
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-          closeProject();
-          closeContact();
+          if (document.getElementById("photoLightbox").classList.contains("show")) {
+            closePhoto();
+          } else {
+            closeProject();
+            closeContact();
+          }
         }
       });
 
-      const paraisoPhotos = ["./img/Smash/IMG_1008-HDR.jpg"];
-      
+      window.paraisoPhotos = ["./img/Smash/IMG_1008-HDR.jpg"];
+
       (function () {
         const g = document.getElementById("origemGalleryGrid");
         if (g) {
@@ -601,6 +607,7 @@
         };
       })();
     </script>
+    <script src="./paraiso-gallery.js"></script>
     <script src="./contact.js"></script>
   </body>
 </html>
