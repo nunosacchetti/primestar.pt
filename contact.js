@@ -10,7 +10,10 @@
   emailLink.href = `mailto:${contact.email}`;
   emailLink.textContent = contact.email;
   phoneLink.href = `tel:${contact.cellphone.replace(/[^\d+]/g, "")}`;
-  phoneLink.textContent = contact.cellphone;
+  phoneLink.textContent = `${contact.cellphone}*`;
+
+  const whatsappLink = document.getElementById("contactWhatsAppLink");
+  whatsappLink.href = `https://wa.me/${contact.cellphone.replace(/\D/g, "")}`;
 
   document.getElementById("contactForm").addEventListener("submit", (event) => {
     event.preventDefault();
