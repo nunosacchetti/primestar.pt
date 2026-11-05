@@ -16,9 +16,8 @@
   whatsappLink.href = `https://wa.me/${contact.cellphone.replace(/\D/g, "")}`;
 
   const instagramLink = document.querySelector(".footer-instagram");
-  const footerBottom = document.querySelector(".foot-bottom");
 
-  if (instagramLink && footerBottom) {
+  if (instagramLink) {
     instagramLink.setAttribute("aria-label", "Instagram da PrimeStar");
     instagramLink.innerHTML = `
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
@@ -26,7 +25,6 @@
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
       </svg>`;
-    footerBottom.before(instagramLink);
   }
 
   document.getElementById("contactForm").addEventListener("submit", (event) => {

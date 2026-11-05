@@ -428,7 +428,7 @@
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
             gap: 40px;
-            padding-bottom: 75px
+            padding-bottom: 32px
         }
 
         .footer-logo {
@@ -728,7 +728,7 @@
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 18px;
-                padding-bottom: 45px
+                padding-bottom: 24px
             }
 
             .foot-bottom {
@@ -1183,17 +1183,23 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             margin-top: 16px;
         }
 
-        .footer > .footer-instagram {
+        .footer-social .footer-instagram {
             display: inline-grid;
             place-items: center;
-            width: 44px;
-            height: 44px;
-            margin: 0 0 12px -11px;
+            width: 56px;
+            height: 56px;
+            border: 1px solid #ffffff33;
+            border-radius: 50%;
             color: #fff;
+        }
+
+        .footer-instagram svg {
+            width: 34px;
+            height: 34px;
         }
 
         .footer a.footer-whatsapp {
@@ -1224,7 +1230,6 @@
             color: #fff;
         }
 
-        .footer > .footer-instagram:focus-visible,
         .footer-social a:focus-visible {
             outline: 2px solid #fff;
             outline-offset: 4px;
