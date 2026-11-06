@@ -982,7 +982,7 @@
         }
 
         .project[data-status="done"]::after {
-            content: none
+            background: linear-gradient(0deg, rgba(7, 17, 26, .82), transparent 58%)
         }
 
         #modalImage.paraiso-full {
