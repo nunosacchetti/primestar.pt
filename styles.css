@@ -305,16 +305,6 @@
             transform: scale(1.055)
         }
 
-        .project[data-status="done"] {
-            background: #d9e2e6
-        }
-
-        .project[data-status="done"] img {
-            object-fit: contain;
-            object-position: center center;
-            transform: none !important
-        }
-
         .project:after {
             content: '';
             position: absolute;
@@ -979,31 +969,20 @@
   /* primestar-visual-refinements */
   
         .project[data-status="done"] {
-            isolation: isolate;
-            background: #d9e2e6
-        }
-
-        .project[data-status="done"]::before {
-            content: "";
-            position: absolute;
-            inset: -20px;
-            background-image: var(--paraiso-image);
-            background-size: cover;
-            background-position: center;
-            filter: blur(22px) brightness(.82);
-            z-index: -1;
-            transform: scale(1.06)
+            aspect-ratio: 3 / 2;
+            min-height: 0
         }
 
         .project[data-status="done"] img {
-            object-fit: contain !important;
-            object-position: center !important;
-            transform: none !important;
-            z-index: 0
+            object-fit: contain
+        }
+
+        .project[data-status="done"]:hover img {
+            transform: none
         }
 
         .project[data-status="done"]::after {
-            background: linear-gradient(0deg, rgba(7, 17, 26, .82), transparent 58%)
+            content: none
         }
 
         #modalImage.paraiso-full {

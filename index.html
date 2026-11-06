@@ -573,24 +573,6 @@
       </button>
       <div class="photo-count" id="photoCount"></div>
     </div>
-    <script id="primestar-image-fill">
-      (function () {
-        function apply() {
-          const card = document.querySelector('.project[data-status="done"]');
-          if (card) {
-            const img = card.querySelector("img");
-            if (img && img.src)
-              card.style.setProperty(
-                "--paraiso-image",
-                'url("' + img.src + '")',
-              );
-          }
-        }
-        if (document.readyState === "loading")
-          document.addEventListener("DOMContentLoaded", apply);
-        else apply();
-      })();
-    </script>
     <script>
       (function () {
         const existingOpen = openProject;
