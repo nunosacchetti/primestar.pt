@@ -301,7 +301,7 @@
             transition: transform .8s
         }
 
-        .project:hover img {
+        .project:not(.project-locked):hover img {
             transform: scale(1.055)
         }
 
@@ -324,9 +324,9 @@
         }
 
         .project-info h3 {
-            font: 300 clamp(30px, 4vw, 54px) Manrope;
+            font: 300 clamp(26px, 3.2vw, 44px)/1.1 Jost, Manrope, sans-serif;
             margin: 10px 0 5px;
-            letter-spacing: -.04em
+            letter-spacing: .075em
         }
 
         .project-info p {
@@ -698,7 +698,7 @@
             }
 
             .project-info h3 {
-                font-size: 36px
+                font-size: 30px
             }
 
             .manifesto-image {
@@ -1061,6 +1061,18 @@
             align-items: start
         }
 
+        #projectImageButton {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+        }
+
+        #projectImageButton:enabled {
+            cursor: zoom-in;
+        }
+
         .experience-layout #modalImage {
             width: 100%;
             height: min(70vh, 670px);
@@ -1074,8 +1086,8 @@
         }
 
         .experience-layout .modal-copy h2 {
-            font: 300 clamp(44px, 5vw, 82px)/1.08 Manrope, sans-serif;
-            letter-spacing: -.06em;
+            font: 300 clamp(36px, 4vw, 66px)/1.08 Jost, Manrope, sans-serif;
+            letter-spacing: .075em;
             margin: 20px 0 25px
         }
 
@@ -1212,4 +1224,12 @@
         .footer-social a:focus-visible {
             outline: 2px solid #fff;
             outline-offset: 4px;
+        }
+
+        .project-locked {
+            cursor: default;
+        }
+
+        .belmont-image {
+            filter: blur(8px);
         }
