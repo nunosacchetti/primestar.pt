@@ -1233,3 +1233,25 @@
         .belmont-image {
             filter: blur(8px);
         }
+
+/* Etiquetas de fase nas capas dos empreendimentos */
+.portfolio-phase {
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    left: 16px;
+    padding: 8px 11px;
+    background: #f5f3ee;
+    color: #19242b;
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+    .portfolio-phase {
+        top: 10px;
+        left: 10px;
+    }
+}
