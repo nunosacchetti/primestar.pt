@@ -221,7 +221,7 @@
           <button
             type="button"
             id="projectImageButton"
-            aria-label="Abrir galeria de imagens do Örigem"
+            aria-label="Abrir galeria de imagens"
             disabled
           >
             <img alt="Imagem ilustrativa" id="modalImage" />
@@ -453,7 +453,10 @@
           id === "belmont" ? "cover" : "contain";
         document.getElementById("modalImage").style.background =
           id === "paraiso" ? "#d9e2e6" : "";
-        document.getElementById("projectImageButton").disabled = id !== "origem";
+        const imageButton = document.getElementById("projectImageButton");
+        imageButton.dataset.project = id;
+        imageButton.disabled = id !== "origem" && id !== "paraiso";
+        imageButton.setAttribute("aria-label", `Abrir galeria de imagens de ${p.title}`);
         document.getElementById("origemGallery").hidden = id !== "origem";
         document.getElementById("paraisoGallery").hidden = id !== "paraiso";
         document.getElementById("paraisoPhotoNotice").hidden = id !== "paraiso";
@@ -511,7 +514,10 @@
         }
       });
 
-      window.paraisoPhotos = ["./img/Smash/IMG_1008-HDR.jpg"];
+      window.paraisoPhotos = [
+        projects.paraiso.img,
+        "./img/Smash/IMG_1008-HDR.jpg",
+      ];
 
       (function () {
         const g = document.getElementById("origemGalleryGrid");

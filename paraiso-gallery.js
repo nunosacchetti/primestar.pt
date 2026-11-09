@@ -20,7 +20,9 @@
     photos.length === 1 ? "fotografia" : "fotografias"
   }`;
 
-  photos.forEach((src, index) => {
+  // The cover is already displayed above the thumbnails.
+  photos.slice(1).forEach((src, thumbnailIndex) => {
+    const index = thumbnailIndex + 1;
     const button = document.createElement("button");
     const image = document.createElement("img");
 
@@ -66,8 +68,10 @@
     if (activePhotos.length > 1) showPhoto(currentIndex + direction);
   }
 
-  function openOrigemCover() {
-    openOrigemPhoto(0);
+  function openProjectCover(event) {
+    const project = event.currentTarget.dataset.project;
+    if (project === "paraiso") openPhoto(0);
+    if (project === "origem") openOrigemPhoto(0);
   }
 
   function navigatePhotos(event) {
@@ -87,7 +91,7 @@
     if (Math.abs(distance) >= 45) movePhoto(distance < 0 ? 1 : -1);
   }
 
-  document.getElementById("projectImageButton").addEventListener("click", openOrigemCover);
+  document.getElementById("projectImageButton").addEventListener("click", openProjectCover);
   document.addEventListener("keydown", navigatePhotos);
   expandedPhoto.addEventListener("touchstart", startSwipe, { passive: true });
   expandedPhoto.addEventListener("touchend", endSwipe, { passive: true });
