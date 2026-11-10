@@ -27,22 +27,34 @@
       </svg>`;
   }
 
-  document.getElementById("contactForm").addEventListener("submit", (event) => {
+  const form = document.getElementById("contactForm");
+  const notice = document.getElementById("contactNotice");
+  const submit = form.querySelector('button[type="submit"]');
+  const endpoint = "https://script.google.com/macros/s/AKfycbzPfWlyb9cIrK7qyr55Z0qDND2wJP-l4K5efMvwjwH3iUaB2ifyxDCprRFbPRqjIUCFjg/exec";
+
+  async function sendContactRequest(event) {
     event.preventDefault();
+    if (submit.disabled) return;
 
-    const value = (id) => document.getElementById(id).value;
-    const body = [
-      `Nome: ${value("contactName")}`,
-      `Email: ${value("contactEmail")}`,
-      `Telefone: ${value("contactPhone")}`,
-      "",
-      value("contactMessage"),
-    ].join("\n");
-    const query = new URLSearchParams({
-      subject: "Pedido de contacto — Website PrimeStar",
-      body,
-    });
+    submit.disabled = true;
+    notice.textContent = "A enviar o seu pedido…";
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: new URLSearchParams(new FormData(form)),
+        signal: AbortSignal.timeout(20000),
+      });
+      if (!response.ok || (await response.json()).ok !== true) {
+        throw new Error("O serviço não confirmou o envio.");
+      }
+      form.reset();
+      notice.textContent = "Pedido enviado. Obrigado pelo seu contacto.";
+    } catch {
+      notice.textContent = "Não foi possível confirmar o envio. Pode contactar-nos em " + contact.email + ".";
+    } finally {
+      submit.disabled = false;
+    }
+  }
 
-    window.location.href = `mailto:${contact.email}?${query}`;
-  });
+  form.addEventListener("submit", sendContactRequest);
 })();
