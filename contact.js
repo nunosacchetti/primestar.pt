@@ -2,6 +2,8 @@
   const contact = {
     email: "info@primestar.pt",
     cellphone: "+351 913 569 125",
+    officeStreet: "Rua Cristóvão Pinho Queimado, Nº33 - Loja C",
+    officePostal: "3800-012 Aveiro",
   };
 
   const emailLink = document.getElementById("contactEmailLink");
@@ -11,6 +13,9 @@
   emailLink.textContent = contact.email;
   phoneLink.href = `tel:${contact.cellphone.replace(/[^\d+]/g, "")}`;
   phoneLink.textContent = `${contact.cellphone}*`;
+
+  document.getElementById("contactOfficeStreet").textContent = contact.officeStreet;
+  document.getElementById("contactOfficePostal").textContent = contact.officePostal;
 
   const whatsappLink = document.getElementById("contactWhatsAppLink");
   whatsappLink.href = `https://wa.me/${contact.cellphone.replace(/\D/g, "")}`;

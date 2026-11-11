@@ -721,6 +721,14 @@
                 padding-bottom: 24px
             }
 
+            .office-address-separator {
+                display: none;
+            }
+
+            .office-address-postal {
+                display: block;
+            }
+
             .foot-bottom {
                 gap: 10px;
                 flex-wrap: wrap
@@ -1175,6 +1183,10 @@
             display: block;
             color: #bec6ca;
             font-size: 11px;
+        }
+
+        .office-address-postal {
+            white-space: nowrap;
         }
 
         .footer-social {
